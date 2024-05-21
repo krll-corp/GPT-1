@@ -1,6 +1,8 @@
-# PRIME: Programmable Response and Intelligent Machine Executor
+# PRIME: Programmable Response and Intelligent Machine Executor: GPT-1
 
 PRIME is a small language model based on the GPT-2 architecture. This project demonstrates a simplified implementation of a language model using PyTorch and the Hugging Face Transformers library. The model is trained on a small dataset of text sequences and is capable of basic text generation tasks.
+
+This is a first actually working GPT(Generative Ptratrained Transformer) model which is trained on a little text including two chat sequences
 
 ## Features
 
