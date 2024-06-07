@@ -46,7 +46,7 @@ When asked "Train new model? (Y/N):", input Y.
 If you have a pre-trained model saved, you can load it instead of training a new one. Run the script and follow the prompt:
 
 ```bash
-python prime.py
+python file_you_need.py
 ```
 When asked "Train new model? (Y/N):", input N.
 
@@ -56,8 +56,9 @@ After loading the model (either newly trained or pre-trained), you can generate 
 ```bash
 Enter the sequence (or 'quit' to stop): What are transformers?
 Model: Transformer models are a type of neural network architecture...
-Model and Tokenizer
 ```
+
+#Model and Tokenizer
 
 ## The model and tokenizer can be saved and loaded using the provided functions in the script:
 
@@ -66,15 +67,15 @@ load_model(): Loads the model and tokenizer from the micro/micro-5 directory.
 
 ## Script Overview
 
-Dataset and DataLoader: Custom dataset and data loader for handling text sequences.
+**Dataset and DataLoader:** Custom dataset and data loader for handling text sequences.
 
-Model Configuration: Configuration of the GPT-2 model with a smaller architecture.
+**Model Configuration:** Configuration of the GPT-2 model with a smaller architecture.
 
-Training Function: Function to train the model for a specified number of epochs.
+**Training Function:** Function to train the model for a specified number of epochs.
 
-Save and Load Functions: Functions to save and load the model and tokenizer.
+**Save and Load Functions:** Functions to save and load the model and tokenizer.
 
-Text Generation Function: Function to generate text based on a given prompt.
+**Text Generation Function:** Function to generate text based on a given prompt.
 
 ## Requirements
 
@@ -88,4 +89,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgements
 
-This project uses the GPT-2 architecture and the Hugging Face Transformers library. Special thanks to OpenAI and Hugging Face for their contributions to the AI community.
+This project uses the GPT-2 architecture and the Hugging Face Transformers library. Special thanks to OpenAI and HuggingFace for their contributions to the AI community.
