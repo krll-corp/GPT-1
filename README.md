@@ -58,12 +58,12 @@ Enter the sequence (or 'quit' to stop): What are transformers?
 Model: Transformer models are a type of neural network architecture...
 ```
 
-#Model and Tokenizer
+# Model and Tokenizer
 
 ## The model and tokenizer can be saved and loaded using the provided functions in the script:
 
-save_model(): Saves the model and tokenizer to the micro/micro-5 directory.
-load_model(): Loads the model and tokenizer from the micro/micro-5 directory.
+*save_model()*: Saves the model and tokenizer to the micro/micro-5 directory.
+*load_model()*: Loads the model and tokenizer from the micro/micro-5 directory.
 
 ## Script Overview
 
