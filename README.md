@@ -7,10 +7,11 @@ This is a first actually working GPT(Generative Ptratrained Transformer) model w
 ## Features
 
 - Transformer-based language model (GPT-2 architecture)
-- Custom tokenizer with special tokens
+- Custom tokenizer with special tokens based on original gpt2 tokenizer
 - Training and evaluation scripts
 - Save and load model functionality
 - Text generation with custom prompts
+- top-k; top-p and seed for controlling responce diversity
 
 ## Installation
 
@@ -58,11 +59,12 @@ Enter the sequence (or 'quit' to stop): What are transformers?
 Model: Transformer models are a type of neural network architecture...
 ```
 
-# Model and Tokenizer
+# Saving/Loading Model and Tokenizer
 
 ## The model and tokenizer can be saved and loaded using the provided functions in the script:
 
 *save_model()*: Saves the model and tokenizer to the micro/micro-5 directory.
+
 *load_model()*: Loads the model and tokenizer from the micro/micro-5 directory.
 
 ## Script Overview
