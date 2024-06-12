@@ -4,11 +4,13 @@ PRIME is a small language model based on the GPT-2 architecture. This project de
 
 This is a first actually working GPT(Generative Ptratrained Transformer) model which is trained on a little text including two chat sequences
 
+In this repository you can find two files calles micro-5 and micro-5.5-turbo_v4 which are the first(basic) and the most recent(advanced) implementations of the code. 
+
 ## Features
 
 - Transformer-based language model (GPT-2 architecture)
 - Custom tokenizer with special tokens based on original gpt2 tokenizer
-- Training and evaluation scripts
+- Training and inference scripts
 - Save and load model functionality
 - Text generation with custom prompts
 - top-k; top-p and seed for controlling responce diversity
@@ -17,7 +19,7 @@ This is a first actually working GPT(Generative Ptratrained Transformer) model w
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/PRIME.git
+    git clone https://github.com/krll-corp/GPT-1.git
     cd PRIME
     ```
 
@@ -27,7 +29,7 @@ This is a first actually working GPT(Generative Ptratrained Transformer) model w
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
-3. Install the required dependencies:
+3. Install the required dependencies(not implemented yet but they are torch, trandformers and datasets):
     ```bash
     pip install -r requirements.txt
     ```
@@ -38,9 +40,10 @@ This is a first actually working GPT(Generative Ptratrained Transformer) model w
 
 To train a new model, run the script and follow the prompt:
 ```bash
-    python prime.py
+    python file.py
 ```
 When asked "Train new model? (Y/N):", input Y.
+
 
 ### Using a Pre-trained Model
 
