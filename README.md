@@ -101,7 +101,9 @@ weight_decay = 1e-1
 - torch
 - numpy
 - transformers
+- tiktoken
 - datasets
+- wandb
 - tqdm
 
 ## License
