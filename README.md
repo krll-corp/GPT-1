@@ -1,4 +1,4 @@
-# PRIME: Programmable Response and Intelligent Machine Executor:GPT-1.5
+# PRIME: Programmable Response and Intelligent Machine Executor | GPT-1.5
 
 PRIME is an advanced, lightweight language model built on the foundations of Karpathy's NanoGPT. Designed for educational exploration and practical applications, PRIME offers a streamlined yet powerful approach to natural language processing.
 
@@ -10,7 +10,7 @@ PRIME is an advanced, lightweight language model built on the foundations of Kar
 - **Sampling Methods**: Supports top-k and top-p sampling for varied outputs.
 
 ## 1.5?
-    Yes, I have reworked the approach to the model, now it's based on Karpathy's nanoGPT. The original files are located in Archive folder.
+Yes, I have reworked the approach to the model, now it's based on Karpathy's nanoGPT. Legacy project files are located in Archive folder.
 
 ## Installation
 
