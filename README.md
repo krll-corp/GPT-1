@@ -1,92 +1,108 @@
-# PRIME: Programmable Response and Intelligent Machine Executor: GPT-1
+# PRIME: Programmable Response and Intelligent Machine Executor:GPT-1.5
 
-PRIME is a small language model based on the GPT-2 architecture. This project demonstrates a simplified implementation of a language model using PyTorch and the Hugging Face Transformers library. The model is trained on a small dataset of text sequences and is capable of basic text generation tasks.
-
-This is a first actually working GPT(Generative Ptratrained Transformer) model which is trained on a little text including two chat sequences
-
-In this repository you can find two files calles micro-5 and micro-5.5-turbo_v4 which are the first(basic) and the most recent(advanced) implementations of the code. 
+PRIME is an advanced, lightweight language model built on the foundations of Karpathy's NanoGPT. Designed for educational exploration and practical applications, PRIME offers a streamlined yet powerful approach to natural language processing.
 
 ## Features
 
-- Transformer-based language model (GPT-2 architecture)
-- Custom tokenizer with special tokens based on original gpt2 tokenizer
-- Training and inference scripts
-- Save and load model functionality
-- Text generation with custom prompts
-- top-k; top-p and seed for controlling responce diversity
+- **Transformer Architecture**: Simplified GPT model implementation.
+- **Custom Tokenizer**: Efficient text processing.
+- **Training and Inference**: Comprehensive scripts for both training new models and generating text.
+- **Sampling Methods**: Supports top-k and top-p sampling for varied outputs.
+
+## 1.5?
+    Yes, I have reworked the approach to the model, now it's based on Karpathy's nanoGPT. The original files are located in Archive folder.
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the Repository**:
+
     ```bash
-    git clone https://github.com/krll-corp/GPT-1.git
+    git clone https://github.com/krll-corp/PRIME.git
     cd PRIME
     ```
 
-2. Create and activate a virtual environment (optional but recommended):
+2. **Set Up Virtual Environment**:
+
     ```bash
     python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    source venv/bin/activate  # On Windows: `venv\Scripts\activate`
     ```
 
-3. Install the required dependencies(not implemented yet but they are torch, trandformers and datasets):
+3. **Install Dependencies**:
+
     ```bash
-    pip install -r requirements.txt
+    pip install torch numpy transformers datasets tiktoken wandb tqdm
     ```
 
 ## Usage
 
-### Training the Model
+### Data Preparation
 
-To train a new model, run the script and follow the prompt:
-```bash
-    python file.py
-```
-When asked "Train new model? (Y/N):", input Y.
-
-
-### Using a Pre-trained Model
-
-If you have a pre-trained model saved, you can load it instead of training a new one. Run the script and follow the prompt:
+Prepare your dataset by converting text into tokenized binaries:
 
 ```bash
-python file_you_need.py
+python data/shakespeare_char/prepare.py
 ```
-When asked "Train new model? (Y/N):", input N.
+
+### Training
+
+Train the model with your dataset:
+
+```bash
+python train.py config/train_shakespeare_char.py
+```
 
 ### Text Generation
-After loading the model (either newly trained or pre-trained), you can generate text by entering a sequence:
+
+Generate text using a trained model:
 
 ```bash
-Enter the sequence (or 'quit' to stop): What are transformers?
-Model: Transformer models are a type of neural network architecture...
+python sample.py --out_dir=out-shakespeare-char
 ```
 
-# Saving/Loading Model and Tokenizer
+## Directory Structure
 
-## The model and tokenizer can be saved and loaded using the provided functions in the script:
+- **config/**: Contains configuration files for training.
+- **data/**: Directory for storing datasets and tokenized data.
+- **assets/**: Resources such as images or additional data files.
+- **Archive/**: Contains archived versions of the project.
+- **model.py**: Defines the transformer model architecture.
+- **sample.py**: Script for generating text from the model.
+- **scaling_laws.ipynb**: Jupyter notebook for exploring scaling laws in transformers.
+- **train.py**: Script to train the PRIME model.
+- **transformer_sizing.ipynb**: Jupyter notebook for model sizing and parameter tuning.
 
-*save_model()*: Saves the model and tokenizer to the micro/micro-5 directory.
+## Configuration
 
-*load_model()*: Loads the model and tokenizer from the micro/micro-5 directory.
+Edit the `config/train_gpt2.py` to customize training parameters:
 
-## Script Overview
+```python
+# these make the total batch size be ~0.5M
+# 12 batch size * 1024 block size * 5 gradaccum * 8 GPUs = 491,520
+batch_size = 12
+block_size = 1024
+gradient_accumulation_steps = 5 * 1 # *number GPUs you use
 
-**Dataset and DataLoader:** Custom dataset and data loader for handling text sequences.
+# this makes total number of tokens be 300B
+max_iters = 600000
+lr_decay_iters = 600000
 
-**Model Configuration:** Configuration of the GPT-2 model with a smaller architecture.
+# eval stuff
+eval_interval = 1000
+eval_iters = 200
+log_interval = 10
 
-**Training Function:** Function to train the model for a specified number of epochs.
-
-**Save and Load Functions:** Functions to save and load the model and tokenizer.
-
-**Text Generation Function:** Function to generate text based on a given prompt.
+# weight decay
+weight_decay = 1e-1
+```
 
 ## Requirements
 
 - torch
+- numpy
 - transformers
-
+- datasets
+- tqdm
 
 ## License
 
@@ -94,4 +110,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgements
 
-This project uses the GPT-2 architecture and the Hugging Face Transformers library. Special thanks to OpenAI and HuggingFace for their contributions to the AI community.
+Inspired by Karpathy's NanoGPT. Thanks to the OpenAI team and  AI community for their foundational and inspirational work.
